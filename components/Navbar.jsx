@@ -54,7 +54,7 @@ const Navbar = () => {
         />
         <MenuList>
           {MenuListItems.map((item) => (
-            <Link href={item.href} passHref>
+            <Link href={item.href} passHref key={item.href}>
               <MenuItem icon={item.icon}>{item.text}</MenuItem>
             </Link>
           ))}
