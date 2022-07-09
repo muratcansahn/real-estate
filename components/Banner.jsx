@@ -11,6 +11,7 @@ const Banner = ({
   linkName,
   imageUrl,
 }) => {
+  console.log(imageUrl);
   return (
     <Box>
       <Flex flexWrap="wrap" justifyContent="center" alignItems="center" m="10">
