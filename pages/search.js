@@ -8,51 +8,52 @@ import Property from "../components/Property";
 import noresult from "../assets/noresult.svg";
 import { fetchApi, baseUrl } from "../utils/fetchApi";
 const Search = ({ properties }) => {
-  console.log(properties);
   const [searchFilters, setSearchFilters] = useState(false);
   const router = useRouter();
-  console.log("properties", properties);
   return (
-    <Box>
-      <Flex
-        cursor="pointer"
-        bg="gray.200"
-        borderBottom="1px"
-        borderColor="gray.200"
-        p={2}
-        fontWeight="black"
-        fontSize="lg"
-        justifyContent="center"
-        alignItems="center"
-        onClick={() => setSearchFilters((prevFilters) => !prevFilters)}
-      >
-        <Text> Search Property By Filters</Text>
-        <Icon paddingLeft="2" w="7" as={BsFilter} />
-      </Flex>
-      {searchFilters && <SearchFilters />}
-      <Text fontSize="2xl" fontWeight="bold" p={4}>
-        Properties{router.query.purpose}
-      </Text>
-      <Flex flexWrap="wrap">
-        {properties.map((property) => (
-          <Property property={property} />
-        ))}
-      </Flex>
-      {[properties].length === 0 && (
+    <>
+      <Box>
         <Flex
+          cursor="pointer"
+          bg="gray.200"
+          borderBottom="1px"
+          borderColor="gray.200"
+          p={2}
+          fontWeight="black"
+          fontSize="lg"
           justifyContent="center"
           alignItems="center"
-          flexDirection="column"
-          marginTop="5"
-          marginBottom="6"
+          onClick={() => setSearchFilters((prevFilters) => !prevFilters)}
         >
-          <Image src={noresult} alt="no results" width="300 " height="300" />
-          <Text fontSize="lg" fontWeight="bold" marginTop="5">
-            No Results Found
-          </Text>
+          <Text> Search Property By Filters</Text>
+          <Icon paddingLeft="2" w="7" as={BsFilter} />
         </Flex>
-      )}
-    </Box>
+        <SearchFilters />
+        {searchFilters && <SearchFilters />}
+        <Text fontSize="2xl" fontWeight="bold" p={4}>
+          Properties{router.query.purpose}
+        </Text>
+        <Flex flexWrap="wrap">
+          {properties.map((property) => (
+            <Property property={property} />
+          ))}
+        </Flex>
+        {[properties].length === 0 && (
+          <Flex
+            justifyContent="center"
+            alignItems="center"
+            flexDirection="column"
+            marginTop="5"
+            marginBottom="6"
+          >
+            <Image src={noresult} alt="no results" width="300 " height="300" />
+            <Text fontSize="lg" fontWeight="bold" marginTop="5">
+              No Results Found
+            </Text>
+          </Flex>
+        )}
+      </Box>
+    </>
   );
 };
 

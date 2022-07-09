@@ -20,7 +20,6 @@ const Property = ({
     externalId,
   },
 }) => {
-  console.log("price", price);
   return (
     <Link href={`/property/${externalId}`} passHref>
       <Flex
@@ -50,7 +49,7 @@ const Property = ({
                 {isVerified && <GoVerified />}
               </Box>
               <Text fontSize="lg" fontWeight="bold">
-                {/* AED {millify(price)} {rentFrequency && `/${rentFrequency}`} */}
+                AED {millify(price)} {rentFrequency && `/${rentFrequency}`}
               </Text>
             </Flex>
             <Box>
@@ -65,10 +64,10 @@ const Property = ({
             color="blue.400"
           >
             {rooms} <FaBed />
-            {/* || {baths} <FaBath /> || {millify(area)} <BsGridFill /> */}
+            || {baths} <FaBath /> || {millify(area)} <BsGridFill />
           </Flex>
           <Text fontSize="lg" fontWeight="bold">
-            {/* {title.length > 30 ? title.substring(0, 30) + "..." : title} */}
+            {title.length > 30 ? title.substring(0, 30) + "..." : title}
           </Text>
         </Box>
       </Flex>
