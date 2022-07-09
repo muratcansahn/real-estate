@@ -1,6 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Flex, Box, Text, Button } from "@chakra-ui/react";
+import RentImg from "../assets/rent.jpg";
+import BuyImg from "../assets/buy.jpg";
 const Banner = ({
   purpose,
   title1,
@@ -9,13 +11,17 @@ const Banner = ({
   desc2,
   buttonText,
   linkName,
-  imageUrl,
+  rent,
 }) => {
-  console.log(imageUrl);
   return (
     <Box>
       <Flex flexWrap="wrap" justifyContent="center" alignItems="center" m="10">
-        <Image src={imageUrl} width={500} height={300} alt="banner" />
+        <Image
+          src={rent ? RentImg : BuyImg}
+          width={500}
+          height={300}
+          alt="banner"
+        />
         <Box p={5}>
           <Text color="gray.500" fontSize="sm" fontWeight="medium">
             {purpose}
